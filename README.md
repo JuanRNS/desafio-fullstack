@@ -14,6 +14,10 @@ e enviar via email ou whatsapp, e no prazo de até 7 dias terá uma call de feed
 ### Portótipo frontend
 
 - [Figma](https://www.figma.com/design/TIIxe8nlTFmAKbdDmPDPIW/Untitled?node-id=0-1&t=ieKcTpnRoFCNhoS9-1)
+- No protótipo acima tem duas páginas:
+ - Home onde é mostrado a listagem dos dispositivos
+ - Cadastrar onde tem o formulário
+
 
 ### Regras frontend
 
