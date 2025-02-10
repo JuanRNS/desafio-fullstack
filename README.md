@@ -1,27 +1,76 @@
-# DesafioFullStack
+# Desafio FullStack
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.11.
+## Objetivo
 
-## Development server
+Objetivo desse desafio é avaliar as competências técnicas do candidato, de solução de problemas e organização de código.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Desafio
 
-## Code scaffolding
+Criar um fork desse repositório onde irá criar uma aplicação onde seja possível listar, editar e apagar os dispositivos salvos, 
+além de poder cadastrar novos dispositivos, seguindo as regras descritas abaixo e o mais fiel ao protótipo possível.\
+Você terá o prazo de 7 dias para desenvolver esse desafio, após finalizar o desenvolvimento deverá criar um pull request para o repositório 
+e enviar via email ou whatsapp, e no prazo de até 7 dias terá uma call de feedback sobre o seu desafio.
+ 
+### Portótipo frontend
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- [Figma](https://www.figma.com/design/TIIxe8nlTFmAKbdDmPDPIW/Untitled?node-id=0-1&t=ieKcTpnRoFCNhoS9-1)
+- No protótipo acima tem duas páginas:
+ - Home onde é mostrado a listagem dos dispositivos
+ - Cadastrar onde tem o formulário
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Regras frontend
 
-## Running unit tests
+- Projeto deve ser feito em Angular (qualquer versão entre versão 12 e 19)
+- Ao editar, apagar ou cadastrar um dispositivo, deve mostrar um modal de confirmação da ação (ex: dispositivo alterado com sucesso, dispositivo salvo com sucesso, falha ao apagar o dispositivo, etc).
+- Ao editar, apagar ou cadastrar um dispositivo, na tela inicial onde lista todos os dispositivos, a lista deve ser atualizada sempre que realizar uma das ações anteriormente descritas.
+- A tela de cadastrar e editar o dispositivo, deve compartilhar o mesmo componente, podendo ser uma página ou modal, porém ao cadastrar o fomrulário inicia vazio e ao editar já vem com os dados preenchido.
+- Os campos do cadastrar e editar devem ser:
+  - Marca (obrigatório) (select)
+  - Modelo (obrigatório) (select)
+  - Processador (obrigatório) (select)
+  - Memoria (obrigatório) (input texto)
+  - Tela (obrigatório) (input texto)
+  - Armazenamento (obrigatório) (input texto)
+  - Dispositivo novo (não obrigatório) (input radio)
+  - Descrição (não obrigatório) (textarea)
+- Os campos marca e modelo devem ser um select (combobox) onde deve lista apenas as marcas e modelos cadastrados no banco de dados
+  - Marcas disponíveis: Samsung, Lenovo, Apple, Dell
+- Só devem aparecer os modelos da marca selecionada
+  - Modelos disponíveis: Galaxy Book4 (samsung), Galaxy Book5 (samsung), Ideapad S145 (lenovo), Ideapad 3 (lenovo), Macbook Air (apple), Macbook Pro (apple), Inspirion 15 (dell) e Inspirion 17 (dell)
+- Os campos obrigatórios devem ter validação utilizando reactiveForm do angular e devem mostrar uma mensagem de erro caso o usuário tente salvar e não tenha preeenchido um campo obrigatório.
+- Os campos obrigatórios devem ter um "*" na label afim de demonstrar que o campo é obrigatório
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Regras backend
 
-## Running end-to-end tests
+- Projeto deve ser feito utilizando Nodejs, Python ou Java.
+- Deve-se ter 6 endpoints:
+  - GET (/device) onde lista todos os dispositivos salvos
+  - POST (/device) onde se salva um novo dispositivo
+  - PUT (/device/{id}) onde edita um dispositivo
+  - DELETE (/device/{id}) onde se remove um dispositivo
+  - GET (/brand) onde retorna lista de Marcas disponíveis
+  - GET (/model) onde retorna lista de modelos disponiveis (pode-se usar query params para filtrar apenas os modelos por marca)
+- No endpoint POST deve-se validar todos os dados recebidos, sendo validado os dados obrigatórios e não obrigatorios, também validando se os campos marca e modelo estão corretos.
+- Deve-se utilizar um banco relacional (MySql ou Postgres)
+- Em caso de erro, os endpoints devem retornar uma mensagem formatada e em português
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Diferenciais
 
-## Further help
+São itens desejáveis, porém não obrigatórios, que pode melhorar sua avaliação
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Frontend:
+  - Utilizar frameworks como Angular Material, PrimeNG, Tailwind.
+  - Utilizar animações e transições
+  - Utilizar loading
+  - Desabilitar botões de ações após o clique durante a execução da ação
+  - Utilizar ESLint
+  - Testes unitários
+ 
+- Backend:
+  - Utilizar POO
+  - Utilizar ORM com entities e relacionamentos corretos
+  - Testes unitários
+ 
+- Geral:
+  - Criar docker-compose com todos os containers necessários para rodar a aplicação
